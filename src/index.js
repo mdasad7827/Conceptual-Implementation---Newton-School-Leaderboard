@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.get("/topRankings", async (req, res) => {
   const offset = sanitize(req.query.offset, 0);
   const limit = sanitize(req.query.limit, 20);
-  const newData = await data.splice(offset, limit);
+  const newData = await data.slice(offset, limit);
   res.send(newData);
 });
 
